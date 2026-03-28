@@ -17,6 +17,7 @@ function set_board_size()
   dimension = parseInt(bs.value);
   board = new Array();
   board.length = dimension*dimension;
+  sync_layout_vars();
  }
 }
 
@@ -24,6 +25,16 @@ function open_new_window(URL)
 {
    NewWindow = window.open(URL,"_blank","toolbar=no,menubar=0,status=0,copyhistory=0,scrollbars=yes,resizable=1,location=0,Width=800,Height=600");
    NewWindow.location = URL;
+}
+
+function sync_layout_vars()
+{
+ document.documentElement.style.setProperty('--board-dimension', dimension);
+ var tt = document.getElementById('timetable');
+ if(tt)
+ {
+  bar_width = tt.clientWidth || bar_width;
+ }
 }
 
 function maketable(firsttime)
@@ -46,6 +57,7 @@ function maketable(firsttime)
  } else {
   document.getElementById('board_div').innerHTML = s;
  }
+ sync_layout_vars();
 }
 
 function updatetable()
@@ -151,6 +163,7 @@ function newseededgame()
 
 function tick()
 {
+ sync_layout_vars();
  timeremaining = timeremaining-updatefrequency;
  if(timeremaining<=0)
  {
@@ -316,6 +329,8 @@ dice = new Array(
 
 board = new Array();
 board.length = dimension*dimension;
+window.addEventListener('resize', sync_layout_vars);
+sync_layout_vars();
 </script>
 </head>
 <body>
@@ -367,7 +382,7 @@ Size:
 </td></tr></table>
 <div id="meta">
 <div><a href="https://milog.co.il/" target="_blank"> Milog</a></div>
-<div>version 0.07</div>
+<div>version 0.08</div>
 <div>Built by Yossi Rahamim</div>
 <div>Edited and uploaded to the server by Tal Regev</div>
 </div>
