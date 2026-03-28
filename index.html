@@ -1,6 +1,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Boggle!</title>
 <link rel="stylesheet" href="game.css">
 <script type="text/javascript" src='seedrandom.js'></script>
@@ -317,7 +318,8 @@ board.length = dimension*dimension;
 </script>
 </head>
 <body>
-<table>
+<div id="page">
+<table id="main-layout">
 <tr>
 <td valign="top">
 <div id="board_div">
@@ -362,9 +364,12 @@ Size:
 <td width="100%" valign="top">
 <div id="solution">&nbsp;</div>
 </td></tr></table>
+<div id="meta">
 <div><a href="https://milog.co.il/" target="_blank"> Milog</a></div>
-<div>version 0.02</div>
-<div>נוצר על ידי יוסי רחמים</div>
-<div>נערך והועלה לשרת על ידי טל רגב</div>
+<div>version 0.03</div>
+<div>Built by Yossi Rahamim</div>
+<div>Edited and uploaded to the server by Tal Regev</div>
+</div>
+</div>
 </body>
 </html>

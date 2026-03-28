@@ -1,6 +1,7 @@
 body
 {
-
+ margin: 0;
+ padding: 24px 12px;
  background-color: #aaaaff;
 }
 
@@ -13,7 +14,8 @@ body
 
 table#gametable
 {
-
+ margin: 0 auto;
+ width: auto;
  border-collapse: collapse;
  background-color: yellow;
 
@@ -21,8 +23,6 @@ table#gametable
 
 table#gametable td
 {
-
-
  font-family: sans-serif;
  font-size: 24pt;
  text-align: center;
@@ -37,6 +37,7 @@ table#gametable td
 
 table#timetable
 {
+ margin: 0 auto;
  border: 3px solid black;
  border-top: 0px solid black;
 }
@@ -44,6 +45,93 @@ table#timetable
 div#timeremaining
 {
  font-size: 24pt;
+}
+
+#page
+{
+ margin: 0 auto;
+ width: fit-content;
+ max-width: 100%;
+}
+
+#main-layout
+{
+ margin: 0 auto;
+ max-width: 100%;
+ border-collapse: collapse;
+}
+
+#main-layout > tbody > tr > td
+{
+ vertical-align: top;
+}
+
+#main-layout > tbody > tr > td:last-child
+{
+ width: auto !important;
+}
+
+#meta
+{
+ width: 368px;
+ margin: 0 auto;
+ text-align: left;
+}
+
+@media (max-width: 700px)
+{
+ #page
+ {
+  width: 100%;
+ }
+
+ #main-layout,
+ #main-layout > tbody,
+ #main-layout > tbody > tr,
+ #main-layout > tbody > tr > td
+ {
+  display: block;
+  width: 100% !important;
+  box-sizing: border-box;
+ }
+
+ #main-layout > tbody > tr > td:nth-child(2)
+ {
+  display: none;
+ }
+
+ #main-layout > tbody > tr > td:last-child
+ {
+  padding-top: 16px;
+ }
+
+ table#gametable td
+ {
+  width: 42px;
+  height: 42px;
+  padding: 6px;
+  font-size: 18pt;
+ }
+
+ table#gametable
+ {
+  width: auto !important;
+ }
+
+ table#timetable
+ {
+  width: 286px;
+ }
+
+ div#timeremaining
+ {
+  font-size: 18pt;
+ }
+
+ #meta
+ {
+  width: 286px;
+ }
 }
 
 td#bar_remaining
