@@ -5,6 +5,11 @@ body
  background-color: #aaaaff;
 }
 
+:root
+{
+ --board-desktop-size: min(88vw, calc(100vh - 140px), 920px);
+}
+
 .nodec
 {
 
@@ -15,7 +20,8 @@ body
 table#gametable
 {
  margin: 0 auto;
- width: auto;
+ width: var(--board-desktop-size);
+ table-layout: fixed;
  border-collapse: collapse;
  background-color: yellow;
 
@@ -24,20 +30,21 @@ table#gametable
 table#gametable td
 {
  font-family: sans-serif;
- font-size: 24pt;
+ font-size: clamp(20pt, 3.4vw, 34pt);
  text-align: center;
  vertical-align: middle;
  border: 3px solid black;
  border-collapse: collapse;
- width: 50px;
- height: 50px;
- padding: 10px;
+ width: auto !important;
+ height: clamp(44px, min(10vw, 15vh), 132px);
+ padding: 0;
 
 }
 
 table#timetable
 {
  margin: 0 auto;
+ width: var(--board-desktop-size);
  border: 3px solid black;
  border-top: 0px solid black;
 }
@@ -73,7 +80,7 @@ div#timeremaining
 
 #meta
 {
- width: 368px;
+ width: var(--board-desktop-size);
  margin: 0 auto;
  text-align: left;
 }
@@ -85,6 +92,11 @@ div#timeremaining
 
 @media (max-width: 700px)
 {
+ :root
+ {
+  --board-desktop-size: min(calc(100vw - 24px), 420px);
+ }
+
  #page
  {
   width: 100%;
@@ -112,20 +124,18 @@ div#timeremaining
 
  table#gametable td
  {
-  width: 42px;
-  height: 42px;
-  padding: 6px;
-  font-size: 18pt;
+  font-size: clamp(16pt, 7vw, 24pt);
+  height: clamp(40px, 16vw, 72px);
  }
 
  table#gametable
  {
-  width: auto !important;
+  width: var(--board-desktop-size) !important;
  }
 
  table#timetable
  {
-  width: 286px;
+  width: var(--board-desktop-size);
  }
 
  div#timeremaining
@@ -135,7 +145,7 @@ div#timeremaining
 
  #meta
  {
-  width: 286px;
+  width: var(--board-desktop-size);
  }
 }
 
