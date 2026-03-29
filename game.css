@@ -57,7 +57,8 @@ table#gametable
  margin: 0 auto;
  table-layout: fixed;
  border-collapse: collapse;
- background-color: #ffff00;
+ --board-color: #ffff00;
+ background-color: var(--board-color);
 }
 
 table#gametable td
@@ -71,7 +72,7 @@ table#gametable td
  color: #000;
  text-align: center;
  vertical-align: middle;
- background-color: inherit;
+ background-color: var(--board-color);
  border: 0.18rem solid #000;
 }
 

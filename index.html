@@ -27,6 +27,13 @@ function open_new_window(URL)
    NewWindow.location = URL;
 }
 
+function set_board_color(color)
+{
+ var gametable = document.getElementById('gametable');
+ if(gametable)
+  gametable.style.setProperty('--board-color', color);
+}
+
 function play_finished_sound()
 {
  if(!finishedsound) return;
@@ -143,7 +150,7 @@ function defineboard()
   if(timeremaining>0)
    clearTimeout(timervar);
   timeremaining = 0;
-  document.getElementById('gametable').style.backgroundColor = "#00FF00";
+  set_board_color("#00FF00");
   showsolution();
  }
 }
@@ -170,7 +177,7 @@ function newgame()
  }
  warm_finished_sound();
  timervar = setTimeout("tick()", updatefrequency);
- document.getElementById('gametable').style.backgroundColor = "#FFFF00";
+ set_board_color("#FFFF00");
 }
 
 function newseededgame()
@@ -187,7 +194,7 @@ function tick()
  if(timeremaining<=0)
  {
   timeremaining = 0;
-  document.getElementById('gametable').style.backgroundColor = "#FFAA00";
+  set_board_color("#FFAA00");
   play_finished_sound();
  } else
  {
@@ -405,7 +412,7 @@ Size:
 <div id="meta">
 <div><a href="https://milog.co.il/" target="_blank"> Milog</a></div>
 <div><a href="https://github.com/talregev/boggle/blob/main/0.png" target="_blank"> Example</a></div>
-<div>version 0.09</div>
+<div>version 0.1.0</div>
 <div>Built by Yossi Rahamim</div>
 <div>Edited and uploaded to the server by Tal Regev</div>
 </div>
