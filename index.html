@@ -36,9 +36,20 @@ function set_board_color(color)
 
 function play_finished_sound()
 {
- if(!finishedsound) return;
+ if(!finishedsound)
+ {
+  set_board_color("#FFAA00");
+  return;
+ }
+ set_board_color("#FFAA00");
  finishedsound.currentTime = 0;
- finishedsound.play();
+ var playpromise = finishedsound.play();
+ if(playpromise && typeof playpromise.catch === 'function')
+ {
+  playpromise.catch(function() {
+   set_board_color("#FFAA00");
+  });
+ }
 }
 
 function warm_finished_sound()
@@ -194,7 +205,6 @@ function tick()
  if(timeremaining<=0)
  {
   timeremaining = 0;
-  set_board_color("#FFAA00");
   play_finished_sound();
  } else
  {
@@ -412,7 +422,7 @@ Size:
 <div id="meta">
 <div><a href="https://milog.co.il/" target="_blank">Milog</a></div>
 <div><a href="https://github.com/talregev/boggle/blob/main/README.md" target="_blank">Rules and examples</a></div>
-<div>version 0.1.6</div>
+<div>version 0.1.7</div>
 <div>Built by Yossi Rahamim</div>
 <div>Edited and uploaded to the server by Tal Regev</div>
 </div>
